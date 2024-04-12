@@ -1,16 +1,26 @@
-const BOX = 10;
-const container = document.querySelector(".container");
-const length = Math.round(800 / BOX) - 2; //-2 for border
-
-
-for (let i = 0; i < BOX; i++) {
-    let column = document.createElement("div");
-    column.classList.add("column");
-    container.appendChild(column);
-    for (let j = 0; j < BOX; j++) {
-        let row = document.createElement("div");
-        row.classList.add("row");
-        row.setAttribute("style", `min-height: ${length}px; min-width: ${length}px;`)
-        column.appendChild(row);
+function renderGrid() {
+    let boxes;
+    do {
+        boxes = prompt("Enter the Dimensions: ");
+    } while (Number(boxes) == NaN)
+    const box = Number(boxes);
+    const length = Math.round(800 / box) - 2; //-2 for border
+    
+    for (let i = 0; i < box; i++) {
+        let column = document.createElement("div");
+        column.classList.add("column");
+        container.appendChild(column);
+        for (let j = 0; j < box; j++) {
+            let row = document.createElement("div");
+            row.classList.add("row");
+            row.setAttribute("style", `min-height: ${length}px; min-width: ${length}px;`)
+            column.appendChild(row);
+        }
     }
 }
+
+const container = document.querySelector(".container");
+
+// Adding Event listener to Start Button
+const startButton = document.querySelector("#start");
+startButton.addEventListener("click", renderGrid);

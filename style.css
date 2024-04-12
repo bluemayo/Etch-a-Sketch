@@ -12,8 +12,27 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 800px;
-    max-height: 800px;
+    min-height: 800px;
+    min-width: 800px;
+    background-color: aqua;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: none;
+    min-height: none;
+}
+
+.interface{
+    min-height: 800px;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .column{
@@ -25,6 +44,22 @@ main{
 
 .row{
     /*min height and width will be inserted with script*/
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 7px;
+}
+
+h1{
+    margin-left: 290px;
+}
+
+p{
+    font-size: 24px;
+}
+
+button{
+    font-size: 24px;
+    background-color: aqua;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 9px;
 }
