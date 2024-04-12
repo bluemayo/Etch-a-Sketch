@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    /*border: 2px solid red;*/
 }
 
 main{
@@ -17,12 +16,12 @@ main{
     background-color: aqua;
 }
 
+
+
 .info{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: none;
-    min-height: none;
 }
 
 .interface{
@@ -45,7 +44,10 @@ main{
 .row{
     /*min height and width will be inserted with script*/
     border: 1px solid grey;
-    border-radius: 7px;
+}
+
+.row:hover{
+    background-color: navy;
 }
 
 h1{
