@@ -43,7 +43,11 @@ main{
 
 .row{
     /*min height and width will be inserted with script*/
-    border: 1px solid grey;
+    border: none;
+}
+
+.rowed{
+    background-color: navy;
 }
 
 .row:hover{

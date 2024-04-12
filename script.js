@@ -1,5 +1,6 @@
 function renderGrid() {
     let box;
+    mouseDown = false;
     do {
         box = userPrompt();
         if (box > 100) {
@@ -7,7 +8,7 @@ function renderGrid() {
         }
     } while (box > 100)
 
-    const length = Math.round(800 / box) - 2; //-2 for border
+    const length = Math.round(800 / box);
     
     for (let i = 0; i < box; i++) {
         let column = document.createElement("div");
@@ -20,6 +21,8 @@ function renderGrid() {
             column.appendChild(row);
         }
     }
+
+    rowEventListener();
 }
 
 function resetGrid() {
@@ -37,7 +40,32 @@ function userPrompt() {
     return parseInt(boxes);
 }
 
+function rowEventListener() {
+    const rows = document.querySelectorAll(".row");
+    
+    
+    rows.forEach((row) => {
+        row.addEventListener("mouseenter", () => {
+            if (mouseDown) {
+                row.classList.replace("row", "rowed");
+            }
+        })
+    })
+
+    container.addEventListener("mousedown", toggleMouse);
+    container.addEventListener("mouseup", toggleMouse);
+}
+
+function toggleMouse() {
+    if (mouseDown) {
+        mouseDown = false;
+    } else {
+        mouseDown = true;
+    }
+}
+
 const container = document.querySelector(".container");
+let mouseDown = false;
 
 // Adding Event listener to Start Button
 const startButton = document.querySelector("#start");
