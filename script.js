@@ -2,8 +2,11 @@ function renderGrid() {
     let boxes;
     do {
         boxes = prompt("Enter the Dimensions: ");
-    } while (Number(boxes) == NaN)
-    const box = Number(boxes);
+    } while (isNaN(parseInt(boxes)))
+    const box = parseInt(boxes);
+    if (box > 100) {
+        alert("Dimensions cannot be more than 100!")
+    }
     const length = Math.round(800 / box) - 2; //-2 for border
     
     for (let i = 0; i < box; i++) {
@@ -19,8 +22,17 @@ function renderGrid() {
     }
 }
 
+function resetGrid() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
 const container = document.querySelector(".container");
 
 // Adding Event listener to Start Button
 const startButton = document.querySelector("#start");
-startButton.addEventListener("click", renderGrid);
+startButton.addEventListener("click", () => {
+    resetGrid();
+    renderGrid();
+});
